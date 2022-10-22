@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.estudandoemcasa.gerenciador.entity.Bank;
+import br.com.estudandoemcasa.gerenciador.entity.Company;
+
 /**
  * Servlet implementation class NovaEmpresaServlet
  */
@@ -18,13 +21,17 @@ public class NovaEmpresaServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nameEmpresa = request.getParameter("nome");
-		System.out.println("Cadastrando nova-empresa = " + nameEmpresa);
+		String nameCompany = request.getParameter("nome");
+		System.out.println("Cadastrando nova-empresa = " + nameCompany);
+		
+		Company company = new Company(1,nameCompany);
+		Bank bank = new Bank();
+		bank.addCompany(company);
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html>"
 				+ "<head><title>Cadastro de Empresas</title></head>"
-				+ "<body><h2>Empresa " + nameEmpresa + " Cadastrada com sucesso.</h2></body></html>");
+				+ "<body><h2>Empresa " + company.getName() + " Cadastrada com sucesso.</h2></body></html>");
 	}
 
 }
