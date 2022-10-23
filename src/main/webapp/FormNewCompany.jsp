@@ -1,4 +1,7 @@
 <!doctype html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/nova-empresa" var="linkNewCompPost" />
+<c:url value="/list-company" var="linkListComp" />
 <html lang="en">
 <head>
 <!-- Required meta tags -->
@@ -18,7 +21,7 @@
 
 	<div class="container" style="text-align: center;padding:10% 20% 10% 20%;">
 		<div style="border: 1px solid gray; border-radius: 5px;">
-			<form method="post" action="/gerenciador/nova-empresa" 
+			<form method="post" action="${linkNewCompPost}" 
 				class="form" style="margin:7%; ">
 				<div class="form-group">
 					<label for="company">New Company</label> <input type="text"
@@ -27,7 +30,7 @@
 						class="form-text text-muted">Name Complete Your Company</small>
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
-				<a href="/gerenciador/list-company" type="button" class="btn btn-secondary">List Companys</a>
+				<a href="${linkListComp}" type="button" class="btn btn-secondary">List Companys</a>
 			</form>
 		</div>
 	</div>

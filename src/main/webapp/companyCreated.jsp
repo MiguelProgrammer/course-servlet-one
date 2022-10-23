@@ -1,4 +1,7 @@
 <%@page import="br.com.estudandoemcasa.gerenciador.entity.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/FormNewCompany.jsp" var="linkNewComp" />
+<c:url value="/list-company" var="linkListComp" />
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,18 +18,27 @@
 <title>New Company Add Success</title>
 </head>
 <body>
-	
-	<div class="container" style="text-align: center;padding:10% 20% 10% 20%;">
-		<div style="border: 1px solid gray; border-radius: 5px; style="margin:7%;">
+
+	<div class="container"
+		style="text-align: center; padding: 10% 20% 10% 20%;">
+		<div style="border: 1px solid gray; border-radius: 5px; margin:7%;">
 			<p style="text-align: center">
+				<c:if test="${not empty company}">
 				Company ${company.getId()} - ${company.getName()} successfully registered
+				</c:if>
+				<c:if test="${empty company}">
+					<b class="text-danger">None Company send for form.</b>
+					<hr>
+					<b>Please, fill the datas of new company <a href="${linkNewComp}">Here</a></b>
+				</c:if>
 			</p>
-			<a type="button" class="btn btn-secondary" 
-			href="/gerenciador/FormNewCompany.html">Create a New Company</a>
-				<a href="/gerenciador/list-company" type="button" class="btn btn-secondary">List Companys</a>
-				<a href="/gerenciador/" type="button" class="btn btn-secondary">Home</a>
+			<a type="button" class="btn btn-secondary" href="${linkNewComp}">Create
+				a New Company</a> <a href="${linkListComp}" type="button"
+				class="btn btn-secondary">List Companys</a> <a href="/gerenciador/"
+				type="button" class="btn btn-secondary">Home</a>
 			<hr>
 		</div>
+	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

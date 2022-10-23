@@ -4,6 +4,9 @@
 <%@page import="br.com.estudandoemcasa.gerenciador.entity.*"%>
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/FormNewCompany.jsp" var="linkNewComp" />
+<c:url value="/list-company" var="linkListComp" />
+<c:url value="/" var="home" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,8 +37,8 @@
 			</ul>
 
 			<a type="button" class="btn btn-secondary"
-				href="/gerenciador/FormNewCompany.html">Create a New Company</a> <a
-				href="/gerenciador/" type="button" class="btn btn-secondary">Home</a>
+				href="${linkNewComp}">Create a New Company</a> <a
+				href="${home}" type="button" class="btn btn-secondary">Home</a>
 			<hr>
 		</div>
 	</div>

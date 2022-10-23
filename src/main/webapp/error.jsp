@@ -1,4 +1,7 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/FormNewCompany.jsp" var="linkNewComp" />
+<c:url value="/list-company" var="linkListComp" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +24,8 @@
 		<div style="border: 1px solid gray; border-radius: 5px; margin:7%;" class="alert alert-danger" role="alert" >
 			<b>Name Company already exists on Bank of Company</b>
 			<hr>
-			<a href="/gerenciador/FormNewCompany.html" type="button" class="btn btn-secondary" >Create a New Company</a>
-				<a href="/gerenciador/list-company" type="button" class="btn btn-secondary">List Companys</a>
+			<a href="${linkNewComp}" type="button" class="btn btn-secondary" >Create a New Company</a>
+				<a href="${linkListComp}" type="button" class="btn btn-secondary">List Companys</a>
 			<hr>
 		</div>
 
