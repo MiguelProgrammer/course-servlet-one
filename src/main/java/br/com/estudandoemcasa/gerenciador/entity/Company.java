@@ -4,7 +4,8 @@ public class Company {
 
 	private Integer id;
 	private String name;
-	private static Integer count = 0;
+	private static Integer count = 2;
+	private Bank bank;
 
 	public Company() {
 	}
@@ -14,11 +15,7 @@ public class Company {
 		this.name = name;
 		count = this.id;
 	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	
 	public Integer getId() {
 		return id;
 	}

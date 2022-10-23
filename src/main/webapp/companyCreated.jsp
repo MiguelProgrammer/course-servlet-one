@@ -6,15 +6,13 @@ bank.setCompany((Company)request.getAttribute("company"));
 Company company = bank.getCompany((Company)request.getAttribute("company"));
 
 %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -24,16 +22,20 @@ Company company = bank.getCompany((Company)request.getAttribute("company"));
 <title>New Company Add Success</title>
 </head>
 <body>
-
-	<div class="container" style="text-align: center">
-		<div style="border: 1px solid gray; border-radiur: 7px">
+	
+	<div class="container" style="text-align: center;padding:10% 20% 10% 20%;">
+		<div style="border: 1px solid gray; border-radius: 5px; style="margin:7%;">
 			<p style="text-align: center">
 				Company
 				<%=company.getId() + " - " + company.getName()%>
 				successfully registered
 			</p>
+			<a type="button" class="btn btn-secondary" 
+			href="/gerenciador/FormNewCompany.html">Create a New Company</a>
+				<a href="/gerenciador/list-company" type="button" class="btn btn-secondary">List Companys</a>
+				<a href="/gerenciador/" type="button" class="btn btn-secondary">Home</a>
+			<hr>
 		</div>
-	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

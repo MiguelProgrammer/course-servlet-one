@@ -13,23 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.estudandoemcasa.gerenciador.entity.Bank;
 import br.com.estudandoemcasa.gerenciador.entity.Company;
 
-/**
- * Servlet implementation class NovaEmpresaServlet
- */
 @WebServlet("/nova-empresa")
 public class NovaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String nameCompany = request.getParameter("nome");
-		System.out.println("Cadastrando nova-empresa = " + nameCompany);
-		
-		Company company = new Company(1,nameCompany);
 		Bank bank = new Bank();
-		bank.addCompany(company);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/companyCreated.jsp");
+		Company company = null;
+		String page = "/error.jsp";
+
+		if (!bank.existCompanyName(nameCompany)) {
+			company = new Company(1, nameCompany);
+			bank.addCompany(company);
+			page = "/companyCreated.jsp";
+		}
+
+		RequestDispatcher rd = request.getRequestDispatcher(page);
 		request.setAttribute("company", company);
 		rd.forward(request, response);
 	}
