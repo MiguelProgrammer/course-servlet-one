@@ -1,14 +1,16 @@
+<%@page import="br.com.estudandoemcasa.gerenciador.entity.*"%>
 <%
 
-	String nameCompany = "MJ - Company";
-	System.out.println(nameCompany);
+Bank bank = new Bank();
+bank.setCompany((Company)request.getAttribute("company"));
+Company company = bank.getCompany((Company)request.getAttribute("company"));
 
 %>
-
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,13 +26,16 @@
 <body>
 
 	<div class="container" style="text-align: center">
-		<div style="border: 1px solid gray;border-radiur:7px">
-			<p style="text-align:center"> Company <%= nameCompany; %> successfully registered </p>	
+		<div style="border: 1px solid gray; border-radiur: 7px">
+			<p style="text-align: center">
+				Company
+				<%=company.getId() + " - " + company.getName()%>
+				successfully registered
+			</p>
 		</div>
 	</div>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>

@@ -24,5 +24,24 @@ public class Bank {
 	public List<Company> listCompany(){
 		return this.companys;
 	}
+	
+	public void setCompany(Company company) {
+		for(Company cp :this.listCompany()) {
+			if(cp.getName().equals(company.getName())) {
+				cp = company;
+				System.out.println("Compania igual");
+			}
+		}
+	}
+	
+	public Company getCompany(Company company) {
+		for(Company cp :this.listCompany()) {
+			if(cp.getName().equals(company.getName())) {
+				System.out.println("Retornonando compania");
+				return company;
+			}
+		}
+		return null;
+	}
 
 }

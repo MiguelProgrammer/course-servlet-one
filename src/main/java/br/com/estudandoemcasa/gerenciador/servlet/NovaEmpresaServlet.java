@@ -3,6 +3,7 @@ package br.com.estudandoemcasa.gerenciador.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,10 +29,9 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Bank bank = new Bank();
 		bank.addCompany(company);
 		
-		PrintWriter out = response.getWriter();
-		out.println("<html>"
-				+ "<head><title>Cadastro de Empresas</title></head>"
-				+ "<body><h2>Empresa " + company.getName() + " Cadastrada com sucesso.</h2></body></html>");
+		RequestDispatcher rd = request.getRequestDispatcher("/companyCreated.jsp");
+		request.setAttribute("company", company);
+		rd.forward(request, response);
 	}
 
 }
