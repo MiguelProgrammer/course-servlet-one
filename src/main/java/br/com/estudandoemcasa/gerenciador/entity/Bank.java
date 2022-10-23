@@ -12,17 +12,17 @@ public class Bank {
 
 	static {
 		Company company = new Company(1, "Company One");
-		Company company2 = new Company(1, "Company Two");
+		Company company2 = new Company(2, "Company Two");
 		companys.add(company);
 		companys.add(company2);
 	}
 
 	public void addCompany(Company company) {
-		this.companys.add(company);
+		companys.add(company);
 	}
 
 	public List<Company> listCompany() {
-		return this.companys;
+		return companys;
 	}
 
 	public void setCompany(Company company) {

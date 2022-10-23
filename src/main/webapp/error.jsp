@@ -15,14 +15,13 @@
 </head>
 <body>
 	
-	<div class="container" style="text-align: center; padding:10% 20% 10% 20%;">
+	<div class="container" style="text-align: center; padding: 10% 20% 10% 20%;">
 		<b>Warning</b>
 		<hr>
-		<div class="alert alert-danger" role="alert" style="border: 1px solid gray; border-radius: 5px; margin:7%;">
+		<div style="border: 1px solid gray; border-radius: 5px; margin:7%;" class="alert alert-danger" role="alert" >
 			<b>Name Company already exists on Bank of Company</b>
 			<hr>
-			<a type="button" class="btn btn-secondary" 
-			href="/gerenciador/FormNewCompany.html">Create a New Company</a>
+			<a href="/gerenciador/FormNewCompany.html" type="button" class="btn btn-secondary" >Create a New Company</a>
 				<a href="/gerenciador/list-company" type="button" class="btn btn-secondary">List Companys</a>
 			<hr>
 		</div>

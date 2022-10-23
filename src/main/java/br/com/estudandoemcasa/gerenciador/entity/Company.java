@@ -4,14 +4,13 @@ public class Company {
 
 	private Integer id;
 	private String name;
-	private static Integer count = 2;
-	private Bank bank;
+	public static Integer count; 
 
 	public Company() {
 	}
 
 	public Company(Integer id, String name) {
-		this.id = id + count;
+		this.id = id;
 		this.name = name;
 		count = this.id;
 	}

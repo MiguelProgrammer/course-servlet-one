@@ -1,11 +1,4 @@
 <%@page import="br.com.estudandoemcasa.gerenciador.entity.*"%>
-<%
-
-Bank bank = new Bank();
-bank.setCompany((Company)request.getAttribute("company"));
-Company company = bank.getCompany((Company)request.getAttribute("company"));
-
-%>
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,9 +19,7 @@ Company company = bank.getCompany((Company)request.getAttribute("company"));
 	<div class="container" style="text-align: center;padding:10% 20% 10% 20%;">
 		<div style="border: 1px solid gray; border-radius: 5px; style="margin:7%;">
 			<p style="text-align: center">
-				Company
-				<%=company.getId() + " - " + company.getName()%>
-				successfully registered
+				Company ${company.getId()} - ${company.getName()} successfully registered
 			</p>
 			<a type="button" class="btn btn-secondary" 
 			href="/gerenciador/FormNewCompany.html">Create a New Company</a>
