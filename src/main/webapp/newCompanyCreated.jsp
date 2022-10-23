@@ -1,3 +1,10 @@
+<%
+
+	String nameCompany = "MJ - Company";
+	System.out.println(nameCompany);
+
+%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,22 +19,13 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<title>New Company</title>
+<title>New Company Add Success</title>
 </head>
 <body>
 
 	<div class="container" style="text-align: center">
-
 		<div style="border: 1px solid gray;border-radiur:7px">
-			<form method="post" action="/gerenciador/nova-empresa" class="form">
-				<div class="form-group">
-					<label for="company">New Company</label> <input type="text"
-						name="nome" class="form-control" id="company"
-						placeholder="New Company"> <small id="company2"
-						class="form-text text-muted">Name Complete Your Company</small>
-				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</form>
+			<p style="text-align:center"> Company <%= nameCompany; %> successfully registered </p>	
 		</div>
 	</div>
 
