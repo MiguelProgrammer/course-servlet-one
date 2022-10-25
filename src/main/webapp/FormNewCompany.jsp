@@ -24,10 +24,12 @@
 			<form method="post" action="${linkNewCompPost}" 
 				class="form" style="margin:7%; ">
 				<div class="form-group">
-					<label for="company">New Company</label> <input type="text"
-						name="nome" required class="form-control" id="company"
-						placeholder="New Company"> <small id="company2"
-						class="form-text text-muted">Name Complete Your Company</small>
+					<label for="company">New Company</label> 
+					<input type="text" name="nome" required class="form-control" id="company" placeholder="New Company"> 
+					<small id="company2" class="form-text text-muted">Name Complete Your Company</small>
+					<hr>
+					<input type="text" name="date-open" required class="form-control" id="dateOpen" placeholder="Date of Creation"> 
+					<small id="dateOpen" class="form-text text-muted">Date Created Company</small>
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 				<a href="${linkListComp}" type="button" class="btn btn-secondary">List Companys</a>

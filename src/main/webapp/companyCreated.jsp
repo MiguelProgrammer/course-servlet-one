@@ -1,5 +1,6 @@
 <%@page import="br.com.estudandoemcasa.gerenciador.entity.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:url value="/FormNewCompany.jsp" var="linkNewComp" />
 <c:url value="/list-company" var="linkListComp" />
 <%@page language="java" contentType="text/html; charset=utf-8"%>
@@ -24,7 +25,9 @@
 		<div style="border: 1px solid gray; border-radius: 5px; margin:7%;">
 			<p style="text-align: center">
 				<c:if test="${not empty company}">
-				Company ${company.getId()} - ${company.getName()} successfully registered
+				<fmt:formatDate value="${company.dateOpen}" pattern="dd/MM/yyyy"/>
+				Company ${company.getId()} - ${company.getName()} - 
+				<fmt:formatDate value="${company.dateOpen}" pattern="dd/MM/yyyy"/> successfully registered
 				</c:if>
 				<c:if test="${empty company}">
 					<b class="text-danger">None Company send for form.</b>

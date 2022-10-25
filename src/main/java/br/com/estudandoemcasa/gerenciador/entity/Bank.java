@@ -1,6 +1,7 @@
 package br.com.estudandoemcasa.gerenciador.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Bank {
@@ -11,8 +12,8 @@ public class Bank {
 	}
 
 	static {
-		Company company = new Company(1, "Company One");
-		Company company2 = new Company(2, "Company Two");
+		Company company = new Company(1, "Company One", new Date());
+		Company company2 = new Company(2, "Company Two", new Date());
 		companys.add(company);
 		companys.add(company2);
 	}
