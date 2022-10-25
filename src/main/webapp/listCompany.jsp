@@ -29,18 +29,28 @@
 		<div style="border: 1px solid gray; border-radius: 5px;">
 
 			<b>Companys on Bank</b>
+			<p style="text-align: center">
+				<c:if test="${not empty company}">
+					<hr>
+
+					<fmt:formatDate value="${company.dateOpen}" pattern="dd/MM/yyyy" />
+				Company ${company.getId()} - ${company.getName()} - 
+				<fmt:formatDate value="${company.dateOpen}" pattern="dd/MM/yyyy" /> successfully registered
+				</c:if>
+			</p>
+
 			<hr>
 
 			<ul>
 				<c:forEach items="${companys}" var="comp">
-					<li>${comp.id}: ${comp.name} - 
-					<fmt:formatDate value="${comp.dateOpen}" pattern="dd/MM/yyyy"/></li>
+					<li>${comp.id}:${comp.name} - <fmt:formatDate
+							value="${comp.dateOpen}" pattern="dd/MM/yyyy" /></li>
 				</c:forEach>
 			</ul>
 
-			<a type="button" class="btn btn-secondary"
-				href="${linkNewComp}">Create a New Company</a> <a
-				href="${home}" type="button" class="btn btn-secondary">Home</a>
+			<a type="button" class="btn btn-secondary" href="${linkNewComp}">Create
+				a New Company</a> <a href="${home}" type="button"
+				class="btn btn-secondary">Home</a>
 			<hr>
 		</div>
 	</div>

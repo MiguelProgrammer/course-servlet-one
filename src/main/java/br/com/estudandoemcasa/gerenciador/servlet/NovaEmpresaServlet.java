@@ -1,6 +1,7 @@
 package br.com.estudandoemcasa.gerenciador.servlet;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.servlet.RequestDispatcher;
@@ -22,8 +23,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 
 		String nameCompany = request.getParameter("nome");
 		String dateOpen = request.getParameter("date-open");
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		
 		Bank bank = new Bank();
@@ -33,7 +33,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		if (!bank.existCompanyName(nameCompany)) {
 			
 			try {
-				company = new Company(Company.count+1, nameCompany, sdf.parse(dateOpen));
+				company = new Company(Company.count+1, nameCompany, sdf.parse(dateOpen.toString()));
 			} catch (ParseException e) {
 				throw new ServletException("Erro of Parse date." + e.getMessage());
 			}
@@ -42,7 +42,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 			page = "/companyCreated.jsp";
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher(page);
+		RequestDispatcher rd = request.getRequestDispatcher("/list-company");
 		request.setAttribute("company", company);
 		rd.forward(request, response);
 	}
