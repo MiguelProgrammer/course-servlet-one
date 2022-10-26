@@ -7,6 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:url value="/FormNewCompany.jsp" var="linkNewComp" />
 <c:url value="/list-company" var="linkListComp" />
+<c:url value="/update-company" var="linkUpdateCompany" />
 <c:url value="/" var="home" />
 <!DOCTYPE html>
 <html lang="en">
@@ -39,14 +40,43 @@
 				</c:if>
 			</p>
 
-			<hr>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr class="table-active">
+						<th scope="col">Id</th>
+						<th scope="col">Name</th>
+						<th scope="col">Date Created</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
 
-			<ul>
-				<c:forEach items="${companys}" var="comp">
-					<li>${comp.id}:${comp.name} - <fmt:formatDate
-							value="${comp.dateOpen}" pattern="dd/MM/yyyy" /></li>
-				</c:forEach>
-			</ul>
+					<c:forEach items="${companys}" var="comp">
+						<tr>
+							<th scope="row">${comp.id}</th>
+							<td>${comp.name}</td>
+							<td><fmt:formatDate value="${comp.dateOpen}"
+									pattern="dd/MM/yyyy" /></td>
+							<td>
+
+								<form method="post" action="${linkUpdateCompany}" class="form"
+									style="margin: 7%;">
+									<input type="hidden" name="nameCompany" value="${comp.name}" />
+									<input type="hidden" name="date" value="${comp.dateOpen}" /> <input
+										type="hidden" name="idCompany" value="${comp.id}" /> <input
+										type="hidden" name="alter" value="notok">
+									<button type="submit" class="btn btn-info btn-sm">Update
+										Company</button>
+								</form>
+								<button type="button" class="btn btn-danger btn-sm">Small
+									Button</button>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
+			<hr>
 
 			<a type="button" class="btn btn-secondary" href="${linkNewComp}">Create
 				a New Company</a> <a href="${home}" type="button"

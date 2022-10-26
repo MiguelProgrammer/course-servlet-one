@@ -1,6 +1,8 @@
 <!doctype html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:url value="/nova-empresa" var="linkNewCompPost" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:url value="/new-company" var="linkNewCompPost" />
+<c:url value="/update-company" var="linkUpdateComp" />
 <c:url value="/list-company" var="linkListComp" />
 <html lang="en">
 <head>
@@ -19,20 +21,38 @@
 </head>
 <body>
 
-	<div class="container" style="text-align: center;padding:10% 20% 10% 20%;">
+	<div class="container"
+		style="text-align: center; padding: 10% 20% 10% 20%;">
 		<div style="border: 1px solid gray; border-radius: 5px;">
-			<form method="post" action="${linkNewCompPost}" 
-				class="form" style="margin:7%; ">
-				<div class="form-group">
-					<label for="company">New Company</label> 
-					<input type="text" name="nome" required class="form-control" id="company" placeholder="New Company"> 
-					<small id="company2" class="form-text text-muted">Name Complete Your Company</small>
-					<hr>
-					<input type="date" name="date-open" required class="form-control" id="dateOpen" placeholder="Date of Creation"> 
-					<small id="dateOpen" class="form-text text-muted">Date Created Company</small>
-				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
-				<a href="${linkListComp}" type="button" class="btn btn-secondary">List Companys</a>
+
+			<c:if test="${not empty company}">
+				<form method="post" action="${linkUpdateComp}" class="form"
+					style="margin: 7%;">
+			</c:if>
+
+			<c:if test="${empty company}">
+				<form method="post" action="${linkNewCompPost}" class="form"
+					style="margin: 7%;">
+			</c:if>
+
+			<div class="form-group">
+				<label for="company">New Company</label> 
+				<input type="text" name="nome" value="${company.name}" required class="form-control"
+					id="company" placeholder="New Company"> 
+					<small
+					id="company2" class="form-text text-muted">Name Complete
+					Your Company</small>
+				<hr>
+				<input type="text" name="date" value="<fmt:formatDate value="${company.dateOpen}" pattern="dd/MM/yyyy" /> "
+				required class="form-control" id="dateOpen"
+					placeholder="Date of Creation"> <small id="dateOpen"
+					class="form-text text-muted">Date Created Company</small> 
+					<input type="hidden" name="idCompany" value="${company.id}" />
+					<input type="hidden" name="alter" value="ok">
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+			<a href="${linkListComp}" type="button" class="btn btn-secondary">List
+				Companys</a>
 			</form>
 		</div>
 	</div>

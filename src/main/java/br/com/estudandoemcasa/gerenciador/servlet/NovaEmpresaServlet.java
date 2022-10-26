@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.estudandoemcasa.gerenciador.entity.Bank;
 import br.com.estudandoemcasa.gerenciador.entity.Company; 
 
-@WebServlet("/nova-empresa")
+@WebServlet("/new-company")
 public class NovaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -20,8 +20,8 @@ public class NovaEmpresaServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String nameCompany = request.getParameter("nome");
-		String dateOpen = request.getParameter("date-open");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String dateOpen = request.getParameter("date");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		
 		Bank bank = new Bank();
@@ -40,14 +40,6 @@ public class NovaEmpresaServlet extends HttpServlet {
 			page = "list-company";
 		}
 		
-		response.sendRedirect(page);
-		
-		/*
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/list-company");
-		request.setAttribute("company", company);
-		rd.forward(request, response);
-		
-		*/
+		response.sendRedirect(page); 
 	}
 }

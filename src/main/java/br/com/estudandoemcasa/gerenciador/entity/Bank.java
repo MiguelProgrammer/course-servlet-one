@@ -28,10 +28,21 @@ public class Bank {
 
 	public void setCompany(Company company) {
 		for (Company cp : this.listCompany()) {
-			if (cp.getName().equals(company.getName())) {
+			if (cp.getId().equals(company.getId())) {
 				cp = company;
 			}
 		}
+	}
+
+	public Company existCompanyId(Integer idCompany) {
+		for (Company cp : this.listCompany()) {
+			if (cp.getId().equals(idCompany)) {
+				System.out.println("aqui" + cp.getId().equals(idCompany));
+				return cp;
+			}
+			System.out.println("aqui" + cp.getId().equals(idCompany));
+		}
+		return null;
 	}
 
 	public Boolean existCompanyName(String companyName) {
@@ -46,11 +57,10 @@ public class Bank {
 	public Company getCompany(Company company) {
 		for (Company cp : this.listCompany()) {
 			if (cp.getName().equals(company.getName())) {
-				System.out.println("Retornonando compania");
 				return company;
 			}
 		}
-		return company;
+		return null;
 	}
 
 }
