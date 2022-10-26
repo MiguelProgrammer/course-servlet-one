@@ -7,7 +7,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:url value="/FormNewCompany.jsp" var="linkNewComp" />
 <c:url value="/list-company" var="linkListComp" />
-<c:url value="/update-company" var="linkUpdateCompany" />
+<c:url value="/delete-company" var="deleteComp" />
+<c:url value="/update-company" var="updateComp" />
 <c:url value="/" var="home" />
 <!DOCTYPE html>
 <html lang="en">
@@ -58,18 +59,8 @@
 							<td><fmt:formatDate value="${comp.dateOpen}"
 									pattern="dd/MM/yyyy" /></td>
 							<td>
-
-								<form method="post" action="${linkUpdateCompany}" class="form"
-									style="margin: 7%;">
-									<input type="hidden" name="nameCompany" value="${comp.name}" />
-									<input type="hidden" name="date" value="${comp.dateOpen}" /> <input
-										type="hidden" name="idCompany" value="${comp.id}" /> <input
-										type="hidden" name="alter" value="notok">
-									<button type="submit" class="btn btn-info btn-sm">Update
-										Company</button>
-								</form>
-								<button type="button" class="btn btn-danger btn-sm">Small
-									Button</button>
+								<a href="${updateComp}?idCompany=${comp.id}" class="btn btn-info btn-sm">Update Company</a> |  
+								<a href="${deleteComp}?idCompany=${comp.id}" class="btn btn-danger btn-sm">Delete Company</a> 
 							</td>
 						</tr>
 					</c:forEach>

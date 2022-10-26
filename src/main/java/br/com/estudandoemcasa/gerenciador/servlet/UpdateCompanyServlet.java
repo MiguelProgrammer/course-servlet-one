@@ -18,46 +18,25 @@ import br.com.estudandoemcasa.gerenciador.entity.Company;
 public class UpdateCompanyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String nameCompany = request.getParameter("nameCompany");
-		String date = request.getParameter("date");
-		
 		String idCompany = request.getParameter("idCompany");
-		String flag = request.getParameter("alter");
 
 		Bank bank = new Bank();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
 		String page = "/error.jsp";
+		Company company = bank.existCompanyId(Integer.parseInt(idCompany));
 
-		SimpleDateFormat sdf = null;
-		if(flag.equals("notok")) {
-			sdf = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy");
-		} else {
-			date = date.replaceAll(" ","");
-			sdf = new SimpleDateFormat("dd/MM/yyyy");
-		}
-		
-		try {
-			Company company = new Company(Integer.parseInt(idCompany), nameCompany, sdf.parse(date));
+		if (!company.getName().isBlank()) {
 			page = "/FormNewCompany.jsp";
-
-			if(flag.equals("ok")) {
-				bank.setCompany(company);
-				page = "/listCompany.jsp";
-			}
-			
-			RequestDispatcher rd = request.getRequestDispatcher(page);
-			request.setAttribute("company", company); 
-			rd.forward(request, response);
-			
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
+
+		RequestDispatcher rd = request.getRequestDispatcher(page);
+		request.setAttribute("company", company);
+		rd.forward(request, response);
+
 	}
 }

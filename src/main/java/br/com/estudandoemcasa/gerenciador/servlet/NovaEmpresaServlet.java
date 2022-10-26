@@ -21,7 +21,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 
 		String nameCompany = request.getParameter("nome");
 		String dateOpen = request.getParameter("date");
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		
 		Bank bank = new Bank();

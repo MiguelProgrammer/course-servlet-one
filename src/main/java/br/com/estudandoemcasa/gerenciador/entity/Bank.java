@@ -40,7 +40,6 @@ public class Bank {
 				System.out.println("aqui" + cp.getId().equals(idCompany));
 				return cp;
 			}
-			System.out.println("aqui" + cp.getId().equals(idCompany));
 		}
 		return null;
 	}
@@ -61,6 +60,10 @@ public class Bank {
 			}
 		}
 		return null;
+	}
+	
+	public Boolean removeCompany(Company company) {
+		return companys.remove(company);
 	}
 
 }
