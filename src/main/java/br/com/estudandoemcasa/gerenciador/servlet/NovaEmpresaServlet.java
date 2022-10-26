@@ -1,10 +1,8 @@
 package br.com.estudandoemcasa.gerenciador.servlet;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,11 +37,17 @@ public class NovaEmpresaServlet extends HttpServlet {
 			}
 			
 			bank.addCompany(company);
-			page = "/companyCreated.jsp";
+			page = "list-company";
 		}
+		
+		response.sendRedirect(page);
+		
+		/*
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/list-company");
 		request.setAttribute("company", company);
 		rd.forward(request, response);
+		
+		*/
 	}
 }
