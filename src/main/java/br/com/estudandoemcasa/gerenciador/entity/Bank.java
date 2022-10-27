@@ -27,17 +27,14 @@ public class Bank {
 	}
 
 	public void setCompany(Company company) {
-		for (Company cp : this.listCompany()) {
-			if (cp.getId().equals(company.getId())) {
-				cp = company;
-			}
-		}
+		Company aux = this.existCompanyId(company.getId());
+		aux.setName(company.getName());
+		aux.setDateOpen(company.getDateOpen());
 	}
 
 	public Company existCompanyId(Integer idCompany) {
 		for (Company cp : this.listCompany()) {
-			if (cp.getId().equals(idCompany)) {
-				System.out.println("aqui" + cp.getId().equals(idCompany));
+			if (cp.getId().equals(idCompany)) { 
 				return cp;
 			}
 		}

@@ -24,19 +24,40 @@ public class UpdateCompanyServlet extends HttpServlet {
 		String idCompany = request.getParameter("idCompany");
 
 		Bank bank = new Bank();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
 		String page = "/error.jsp";
 		Company company = bank.existCompanyId(Integer.parseInt(idCompany));
 
 		if (!company.getName().isBlank()) {
 			page = "/FormNewCompany.jsp";
 		}
-		
 
 		RequestDispatcher rd = request.getRequestDispatcher(page);
 		request.setAttribute("company", company);
 		rd.forward(request, response);
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String idCompany = request.getParameter("idUpdateComp");
+		String nameCompany = request.getParameter("nameUpdateComp");
+		String dateCompany = request.getParameter("dateUpdateComp");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+		Bank bank = new Bank();
+		String page = "list-company";
+		try {
+			bank.setCompany(new Company(Integer.parseInt(idCompany), nameCompany, sdf.parse(dateCompany)));
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		response.sendRedirect(page);
 
 	}
 }
