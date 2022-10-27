@@ -47,7 +47,7 @@ public class UpdateCompanyServlet extends HttpServlet {
 
 		Bank bank = new Bank();
 		String page = "list-company";
-		try {
+		try { 
 			bank.setCompany(new Company(Integer.parseInt(idCompany), nameCompany, sdf.parse(dateCompany)));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
