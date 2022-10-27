@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.estudandoemcasa.gerenciador.entity.Bank;
 
-//@WebServlet("/list-company")
+@WebServlet("/list-company")
 public class ListCompanyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  

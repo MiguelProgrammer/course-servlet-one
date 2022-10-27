@@ -27,7 +27,7 @@ public class UpdateCompanyServlet extends HttpServlet {
 		String page = "/error.jsp";
 		Company company = bank.existCompanyId(Integer.parseInt(idCompany));
 
-		if (!company.getName().isBlank()) {
+		if (!company.getName().isEmpty()) {
 			page = "/FormNewCompany.jsp";
 		}
 
