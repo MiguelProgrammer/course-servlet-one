@@ -5,7 +5,7 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/action-company" var="action-company" />
+<c:url value="/company" var="action" />
 <c:url value="/" var="home" />
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +56,8 @@
 							<td><fmt:formatDate value="${comp.dateOpen}"
 									pattern="dd/MM/yyyy" /></td>
 							<td>
-								<a href="${action-company}/update/id=${comp.id}" class="btn btn-info btn-sm">Update Company</a> |  
-								<a href="${action-company}/delete/id=${comp.id}" class="btn btn-danger btn-sm">Delete Company</a> 
+								<a href="${action}?action=update&id=${comp.id}" class="btn btn-info btn-sm">Update Company</a> |  
+								<a href="${action}?action=delete&id=${comp.id}" class="btn btn-danger btn-sm">Delete Company</a> 
 							</td>
 						</tr>
 					</c:forEach>

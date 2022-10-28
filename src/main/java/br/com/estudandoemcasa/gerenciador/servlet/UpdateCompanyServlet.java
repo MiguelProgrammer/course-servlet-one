@@ -20,19 +20,7 @@ public class UpdateCompanyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String idCompany = request.getParameter("idCompany");
-
-		Bank bank = new Bank();
-		String page = "/error.jsp";
-		Company company = bank.existCompanyId(Integer.parseInt(idCompany));
-
-		if (!company.getName().isEmpty()) {
-			page = "/FormNewCompany.jsp";
-		}
-
-		RequestDispatcher rd = request.getRequestDispatcher(page);
-		request.setAttribute("company", company);
-		rd.forward(request, response);
+		
 
 	}
 

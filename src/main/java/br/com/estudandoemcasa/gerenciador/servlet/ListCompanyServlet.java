@@ -10,15 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.estudandoemcasa.gerenciador.model.*;
 
-@WebServlet("/list")
+@WebServlet("/company/list")
 public class ListCompanyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Bank bank = new Bank();
-		request.setAttribute("companys", bank.listCompany());
-		RequestDispatcher rd = request.getRequestDispatcher("/listCompany.jsp");
-		rd.forward(request, response);
+		
 	}
 }

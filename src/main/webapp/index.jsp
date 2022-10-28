@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:url value="/company/action/list" var="action" />
+<c:url value="/company" var="action" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
 		<div style="border: 1px solid gray; border-radius: 5px; margin:7%;"><br>
 			<a type="button" class="btn btn-secondary" 
 			href="${linkNewComp}">Create a New Company</a>
-				<a href="${action}" type="button" class="btn btn-secondary">List Companys</a>
+				<a href="${action}?action=list" type="button" class="btn btn-secondary">List Companys</a>
 			<hr>
 		</div>
 
