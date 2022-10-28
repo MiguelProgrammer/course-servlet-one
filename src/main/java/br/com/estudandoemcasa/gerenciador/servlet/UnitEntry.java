@@ -1,24 +1,24 @@
 package br.com.estudandoemcasa.gerenciador.servlet;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.estudandoemcasa.gerenciador.model.*;
 
-@WebServlet("/list")
-public class ListCompanyServlet extends HttpServlet {
+@WebServlet("/company/action/{?}")
+public class UnitEntry extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("aaui");
+		String action = request.getParameter("/");
 		
-		Bank bank = new Bank();
-		request.setAttribute("companys", bank.listCompany());
-		RequestDispatcher rd = request.getRequestDispatcher("/listCompany.jsp");
-		rd.forward(request, response);
+		System.out.println("Routes: " + action);
+		
 	}
+
+
 }

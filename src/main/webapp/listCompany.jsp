@@ -1,14 +1,11 @@
 <%@page import="java.util.stream.Collectors"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Arrays"%>
-<%@page import="br.com.estudandoemcasa.gerenciador.entity.*"%>
+<%@page import="br.com.estudandoemcasa.gerenciador.model.*"%>
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/FormNewCompany.jsp" var="linkNewComp" />
-<c:url value="/list-company" var="linkListComp" />
-<c:url value="/delete-company" var="deleteComp" />
-<c:url value="/update-company" var="updateComp" />
+<c:url value="/action-company" var="action-company" />
 <c:url value="/" var="home" />
 <!DOCTYPE html>
 <html lang="en">
@@ -59,8 +56,8 @@
 							<td><fmt:formatDate value="${comp.dateOpen}"
 									pattern="dd/MM/yyyy" /></td>
 							<td>
-								<a href="${updateComp}?idCompany=${comp.id}" class="btn btn-info btn-sm">Update Company</a> |  
-								<a href="${deleteComp}?idCompany=${comp.id}" class="btn btn-danger btn-sm">Delete Company</a> 
+								<a href="${action-company}/update/id=${comp.id}" class="btn btn-info btn-sm">Update Company</a> |  
+								<a href="${action-company}/delete/id=${comp.id}" class="btn btn-danger btn-sm">Delete Company</a> 
 							</td>
 						</tr>
 					</c:forEach>

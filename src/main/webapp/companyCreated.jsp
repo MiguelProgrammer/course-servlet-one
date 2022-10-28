@@ -1,8 +1,7 @@
-<%@page import="br.com.estudandoemcasa.gerenciador.entity.*"%>
+<%@page import="br.com.estudandoemcasa.gerenciador.model.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/FormNewCompany.jsp" var="linkNewComp" />
-<c:url value="/list-company" var="linkListComp" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
+<c:url value="/action-company" var="action-company" />
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +31,10 @@
 				<c:if test="${empty company}">
 					<b class="text-danger">None Company send for form.</b>
 					<hr>
-					<b>Please, fill the datas of new company <a href="${linkNewComp}">Here</a></b>
+					<b>Please, fill the datas of new company <a href="${action-company}/new-company">Here</a></b>
 				</c:if>
 			</p>
-			<a type="button" class="btn btn-secondary" href="${linkNewComp}">Create
+			<a type="button" class="btn btn-secondary" href="${action-company}/new-company">Create
 				a New Company</a> <a href="${linkListComp}" type="button"
 				class="btn btn-secondary">List Companys</a> <a href="/gerenciador/"
 				type="button" class="btn btn-secondary">Home</a>

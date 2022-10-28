@@ -1,4 +1,4 @@
-package br.com.estudandoemcasa.gerenciador.entity;
+package br.com.estudandoemcasa.gerenciador.model;
 
 import java.util.ArrayList;
 import java.util.Date;

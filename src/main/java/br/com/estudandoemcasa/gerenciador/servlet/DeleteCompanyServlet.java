@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.estudandoemcasa.gerenciador.entity.Bank;
+import br.com.estudandoemcasa.gerenciador.model.*;
 
 @WebServlet("/delete-company")
 public class DeleteCompanyServlet extends HttpServlet {

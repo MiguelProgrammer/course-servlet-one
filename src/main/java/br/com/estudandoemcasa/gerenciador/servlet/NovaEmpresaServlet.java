@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.estudandoemcasa.gerenciador.entity.Bank;
-import br.com.estudandoemcasa.gerenciador.entity.Company; 
+import br.com.estudandoemcasa.gerenciador.model.*;
 
 @WebServlet("/new-company")
 public class NovaEmpresaServlet extends HttpServlet {

@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.estudandoemcasa.gerenciador.entity.Bank;
-import br.com.estudandoemcasa.gerenciador.entity.Company;
+import br.com.estudandoemcasa.gerenciador.model.*;
 
 @WebServlet("/update-company")
 public class UpdateCompanyServlet extends HttpServlet {

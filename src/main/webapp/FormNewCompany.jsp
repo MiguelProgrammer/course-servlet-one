@@ -1,11 +1,8 @@
 <!doctype html>
-<%@page import="br.com.estudandoemcasa.gerenciador.entity.Company"%>
-<%@page import="br.com.estudandoemcasa.gerenciador.entity.Bank"%>
+<%@page import="br.com.estudandoemcasa.gerenciador.model.* %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/new-company" var="linkNewCompPost" />
-<c:url value="/update-company" var="linkUpdateComp" />
-<c:url value="/list-company" var="linkListComp" />
+<c:url value="/action-company" var="action-company" />
 <html lang="en">
 <head>
 <!-- Required meta tags -->
@@ -27,7 +24,7 @@
 		style="text-align: center; padding: 10% 20% 10% 20%;">
 		<div style="border: 1px solid gray; border-radius: 5px;">
 			<c:if test="${not empty company}">
-				<form method="post" action="${linkUpdateComp}" class="form"
+				<form method="post" action="${action-company}/update" class="form"
 					style="margin: 7%;">
 					<div class="form-group">
 						<label for="company">New Company</label> <input type="text"
@@ -45,7 +42,7 @@
 			</c:if>
 
 			<c:if test="${empty company}">
-				<form method="post" action="${linkNewCompPost}" class="form"
+				<form method="post" action="${action-company}/new" class="form"
 					style="margin: 7%;">
 
 					<div class="form-group">

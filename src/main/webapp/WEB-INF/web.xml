@@ -8,7 +8,7 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>meuServlet</servlet-name>
 		<servlet-class>br.com.estudandoemcasa.gerenciador.servlet.ListCompanyServlet</servlet-class>
 	</servlet>
@@ -16,5 +16,5 @@
 		<servlet-name>meuServlet</servlet-name>
 		<url-pattern>/ola</url-pattern>
 	</servlet-mapping>
-	
+	-->
 </web-app>
